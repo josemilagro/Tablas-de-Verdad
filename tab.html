@@ -1,0 +1,100 @@
+<html>
+<head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora Lógica Proposicional</title>
+        <script type="text/javascript" src="calculadora.js"></script><style type="text/css"></style>
+        <link rel="stylesheet" type="text/css" href="ta.css">
+</head>
+
+<body>  
+        
+    <form name="fo">                 
+        <h1>Calculadora Lógica Proposicional</h1>
+
+        <font size="4"><strong>Ingrese la proposición a evaluar:</strong></font>
+        <colspan="4"><input type="text" name="valores" style='width:300px; height:30px' id="valores" readonly="readonly">
+
+	    <tr>
+		
+		 
+            <div>
+                <td><input type="button" value="p" style='width:70px; height:50px' onclick="retornar(value,'p')"></td>
+                <td><input type="button" value="q" style='width:70px; height:50px' onclick="retornar(value,'q')"></td>
+                <td><input type="button" value="r" style='width:70px; height:50px' onclick="retornar(value,'r')"></td>
+                <td><input type="button" value="s"  style='width:70px; height:50px'onclick="retornar(value,'s')"></td>
+                
+            </div>
+            
+            <div>
+                <td><input type="button" value="ʌ" style='width:70px; height:50px' onclick="retornar(value,'&amp;')"></td>
+                <td><input type="button" value="∨" style='width:70px; height:50px' onclick="retornar(value,'|')"></td>
+                <td><input type="button" value="→" style='width:70px; height:50px' onclick="retornar(value,'>')"></td>
+                <td><input type="button" value="¬" style='width:70px; height:50px' onclick="retornar(value,'!')"></td>
+                
+            </div>
+                       
+            <div>
+                <td><input type="button" value="⊻" style='width:70px; height:50px' onclick="retornar(value,'⊻')"></td>
+                <td><input type="button" value="↔" style='width:70px; height:50px' onclick="retornar(value,'<')"></td>
+		        <td width="100px"><input type="button" style='width:70px; height:50px' value="(" onclick="retornar(value,'(')"></td>
+		        <td><input type="button" value=")" style='width:70px; height:50px' onclick="retornar(value,')')"></td>
+            </div>
+	        <td><input type="button" value="DEL" style='width:80px; height:40px' onclick="eliminar()"></td>
+            <td><input type="button" value="Borrar" style='width:80px; height:40px' onclick="limpiarTextField()"></td>       
+        </tr>
+		<tr>
+            <td colspan="5"><hr size="4px" color="black"></td>
+        </tr>
+		<tr>
+            <td colspan="5">       
+                <legend><strong>Valores de Verdad</strong></legend>                      
+                <label for="valorVerdadP">P</label>                        
+    			<SELECT NAME="value" id="valueOfP" SIZE=1" style="background-color:black; color: white;"> 
+        			<OPTION VALUE="1">true</OPTION>
+        			<OPTION VALUE="2">false</OPTION>
+    			</SELECT>
+    			
+                            
+                <label for="valorVerdadQ">Q</label>
+    			<SELECT NAME="value" id="valueOfQ" SIZE=1" style="background-color:black; color: white;"> 
+        			<OPTION VALUE="1">true</OPTION>
+        			<OPTION VALUE="2">false</OPTION>
+    			</SELECT>
+                            
+                            
+                <label for="valorVerdadR">R</label>
+    			<SELECT NAME="value" id="valueOfR" SIZE=1" style="background-color:black; color: white;"> 
+        			<OPTION VALUE="1">true</OPTION>
+        			<OPTION VALUE="2">false</OPTION>
+    			</SELECT>
+                            
+                            
+                <label for="valorVerdadS">S</label>
+    			<SELECT NAME="value" id="valueOfS" SIZE=1" style="background-color:black; color: white;"> 
+        			<OPTION VALUE="1">true</OPTION>
+        			<OPTION VALUE="2">false</OPTION>
+    			</SELECT>                                  
+            </td>
+        </tr>        
+        <tr>
+            <td colspan="5"><hr size="4px" color="black"></td>
+        </tr>   
+        <tr>
+            <th><font size="4" color="white">Resultado:</font></th>
+            <td colspan="4"><input type="text" name="resultado" style='width:300px; height:30px' id="resultado"></td>               
+        </tr>                           
+        <tr>
+            <td colspan="5"><hr size="4px" color="black"></td>
+        </tr> 
+                
+        <br>
+	    <td colspan="3"><input type="button" value="Calcular" id="calcular" onclick="(new Calcular()).calcular()"></td>          
+        <input type="button" value="Generar Tabla" id="Tabla" onclick="crearTabla()">
+        <tr>
+            <td colspan="5"><hr size="4px" color="black"></td>
+        </tr>    
+    </form>           
+</body>
+</html>
