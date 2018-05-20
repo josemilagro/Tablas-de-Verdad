@@ -84,9 +84,9 @@ function limpiarTextField(){
     document.fo.valores.value="";
     document.fo.resultado.value="";
     var texts = document.getElementsByName("value");
-    for(var i = 0; i< texts.length ;i++){
-        texts[i].value = "";
-    }
+    //for(var i = 0; i< texts.length ;i++){
+        //texts[i].value = "";
+    //}
     finalStatement = "";
 }
 
@@ -103,40 +103,33 @@ function crearTabla(){
         var rows = Math.pow(2,n);
         if(ventana!==null) ventana.close();
         ventana = window.open('','ventana','width=800,height=550,top='+ ((screen.height - 550) / 2) + ',left=' + ((screen.width - 4000) / 2));
-        ventana.document.write('<head><title>Tabla lógica proposicional</title></head>');
-        ventana.document.write('<body bgcolor="#6B6B6D">');
-        ventana.document.write('<style>');
-        ventana.document.write('*{font-family: "arial";}');
-        ventana.document.write('table, th, td {border: 1px solid black;width:100px;color="white;"}');
-        ventana.document.write('input[type="button"],[type="submit"]{');
-        ventana.document.write('font-size: 20px;');
-        ventana.document.write('color: white;');
-        ventana.document.write('background: black;');
-        ventana.document.write('}');
-        ventana.document.write('table{width:100%; height:400px; text-align:center;border:black 3px solid;border-radius:7px;border-spacing: 0px;margin:0 auto;}input[type="button"]{border-style:solid;border-radius:6px;');
-        ventana.document.write('border-radius: 10px;border-spacing: 0px; border: black 5px solid;');
-        ventana.document.write('margin:0 auto;}');
-        ventana.document.write('</style>');        
+        ventana.document.write('<head><title>Tabla proposicional</title>');
+        //ventana.document.write('<link rel="stylesheet" type="text/css" href="Tabla.css">');
+        ventana.document.write('<link rel="stylesheet" type="text/css" href="boostrap/css/bootstrap.min.css">');
+        ventana.document.write('</head>');        
         ventana.document.write('<body>');
-        ventana.document.write('<table>');
-        ventana.document.write('<caption><label><strong><font color="white" size="4px">Tabla lógica proposicional</font></strong></label><br></caption>');
+        ventana.document.write('<table class="table table-hover">');
+        ventana.document.write('<caption><label><strong><font color="white" size="4px">Tabla proposicional</font></strong></label><br></caption>');
         ventana.document.write('<thead>');
         ventana.document.write('<tr>');
-        for(var i=0; i<verdades.length; i++){
+        //ventana.document.write('<th>#</th>');
+        for(var i=0; i<verdades.length; i++)
+        {
             if(verdades[i]){
-                ventana.document.write('<th><label><font color="white">'+proposiciones[i].toUpperCase()+'</font></label></th>');
+                ventana.document.write('<th>'+proposiciones[i].toUpperCase()+'</th>');
             }
         }
         if(tableStatement.length===1){
-            ventana.document.write('<th><label><font color="white">'+proposicionesSimples[0].toUpperCase()+'</font></label></th>');
+            ventana.document.write('<th>'+proposicionesSimples[0].toUpperCase()+'</th>');
         }else{
             generarEncabezado();
             for(var pos=0; pos<array.length; pos++){
-                ventana.document.write('<th><label><font color="white">'+ array[pos] +'</font></label></th>');
+                ventana.document.write('<th>'+ array[pos] +'</th>');
             }
         }
         ventana.document.write('</tr>');
         ventana.document.write('</thead>');
+
         for(var idx=0; idx<rows; idx++){
             ventana.document.write('<tr>');
             var k=0;
@@ -144,18 +137,18 @@ function crearTabla(){
                 var value = parseInt((idx/parseInt(Math.pow(2,j))))%2;
                 if(value === 1) valor="t";
                 else valor="f";
-                ventana.document.write('<td><label><font color="white">'+ valor.toUpperCase() +'</font></label></td>');
+                ventana.document.write('<td><label><font color="black">'+ valor.toUpperCase() +'</font></label></td>');
                 cambiarValor(proposicionesSimples[k],valor);
                 k++;
             }
             var resultado = (new Calcular()).calcularTabla();
             if(answers.length>0){
                 for(var index=0; index<answers.length; index++){
-                    ventana.document.write('<td><label><font color="white">'+ answers[index].toUpperCase() +'</font></label></td>');               
+                    ventana.document.write('<td><label><font color="black">'+ answers[index].toUpperCase() +'</font></label></td>');               
                 }
                 tipo_tabla.push(answers[answers.length-1]);
             }else{
-                ventana.document.write('<td><label><font color="white">'+ resultado.toUpperCase() +'</font></label></td>');
+                ventana.document.write('<td><label><font color="black">'+ resultado.toUpperCase() +'</font></label></td>');
                 tipo_tabla.push(resultado);
             }                
             ventana.document.write('</tr>');
@@ -164,7 +157,7 @@ function crearTabla(){
         ventana.document.write('</table>');
         var tipo = tipoTabla();
 	ventana.document.write('<td colspan="5"><hr size="4px" color="black"></td>');
-        ventana.document.write('<div ALIGN="center"><label><font color="white">Tipo de tabla: <strong>'+ tipo +'</font></strong></label></div>'); 
+        ventana.document.write('<div ALIGN="center"><label><font color="black">Tipo de tabla: <strong>'+ tipo +'</font></strong></label></div>'); 
         ventana.document.write('<div ALIGN="center">');
         ventana.document.write('<br><input type="button" value="Cerrar" onclick="opener.cerrarTabla(window)" />');
         ventana.document.write('</div>');

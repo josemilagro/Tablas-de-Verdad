@@ -3,35 +3,24 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calculadora Lógica Proposicional</title>
+        <title>Tabla Proposicional</title>
         <script type="text/javascript" src="calculadora.js"></script><style type="text/css"></style>
         <link rel="stylesheet" type="text/css" href="ta.css">
 </head>
 
-    <body background="white">  
+<body>  
         
-        <form name="fo">          
-            
-        
-        <h1>Tabla proposicional</h1>
+    <form name="fo">                 
+        <h1>Tabla Proposicional</h1>
+
+        <div class="cuadro">
+            <font size="4"><strong>Ingrese la proposición a evaluar</strong></font>
+        <br><br>
+        <colspan="4"><input type="text" name="valores" style='width:300px; height:30px' id="valores" readonly="readonly">
+
         <tr>
-                <td colspan="5"><hr size="4px" color="black"></td>
-            </tr>
         
-        
-            
-            <font size="4" color="white"><strong>Expresión:</strong></font>
-                <colspan="4"><input type="text" name="valores" style='width:300px; height:30px' id="valores" readonly="readonly">
-                
-            
-	
-	
-	<tr>
-                <td colspan="5"><hr size="4px" color="black"></td>
-            </tr>
-	<tr>
-		
-		 
+         
             <div>
                 <td><input type="button" value="p" style='width:70px; height:50px' onclick="retornar(value,'p')"></td>
                 <td><input type="button" value="q" style='width:70px; height:50px' onclick="retornar(value,'q')"></td>
@@ -49,78 +38,72 @@
             </div>
                        
             <div>
-                <td><input type="button" value="⊻" style='width:70px; height:50px' onclick="retornar(value,'⊻')"></td>
                 <td><input type="button" value="↔" style='width:70px; height:50px' onclick="retornar(value,'<')"></td>
-		<td width="100px"><input type="button" style='width:70px; height:50px' value="(" onclick="retornar(value,'(')"></td>
-		<td><input type="button" value=")" style='width:70px; height:50px' onclick="retornar(value,')')"></td>
+                <td width="100px"><input type="button" style='width:70px; height:50px' value="(" onclick="retornar(value,'(')"></td>
+                <td><input type="button" value=")" style='width:70px; height:50px' onclick="retornar(value,')')"></td>
             </div>
-	
-		<td><input type="button" value="DEL" style='width:80px; height:40px' id="del" onclick="eliminar()"></td>
-                <td><input type="button" value="Borrar" style='width:80px; height:40px' id="borrar" onclick="limpiarTextField()"></td>
-            
-            </tr>
-		<tr>
-                <td colspan="5"><hr size="4px" color="black"></td>
-            </tr>
-		<tr>
-               <td colspan="5">
-                    
-                        <legend><strong>Valores de Verdad</strong></legend>                      
-                        <label for="valorVerdadP">P</label>                        
-			<SELECT NAME="value" id="valueOfP" SIZE=1" style="background-color:black; color: white;"> 
-			<OPTION VALUE="1">true</OPTION>
-			<OPTION VALUE="2">false</OPTION>
-			</SELECT>
-			
-                        
-                        <label for="valorVerdadQ">Q</label>
-			<SELECT NAME="value" id="valueOfQ" SIZE=1" style="background-color:black; color: white;"> 
-			<OPTION VALUE="1">true</OPTION>
-			<OPTION VALUE="2">false</OPTION>
-			</SELECT>
-                        
-                        
-                        <label for="valorVerdadR">R</label>
-			<SELECT NAME="value" id="valueOfR" SIZE=1" style="background-color:black; color: white;"> 
-			<OPTION VALUE="1">true</OPTION>
-			<OPTION VALUE="2">false</OPTION>
-			</SELECT>
-                        
-                        
-                        <label for="valorVerdadS">S</label>
-			<SELECT NAME="value" id="valueOfS" SIZE=1" style="background-color:black; color: white;"> 
-			<OPTION VALUE="1">true</OPTION>
-			<OPTION VALUE="2">false</OPTION>
-			</SELECT>                            
-                    
-               </td>
-            
-            </tr>
-            
-            <tr>
-                <td colspan="5"><hr size="4px" color="black"></td>
-            </tr>
-            
-            <tr>
-                <th><font size="4" color="white">Resultado:</font></th>
-                <td colspan="4"><input type="text" name="resultado" style='width:300px; height:30px' id="resultado"></td>               
-            </tr>                           
-           <tr>
-                <td colspan="5"><hr size="4px" color="black"></td>
-            </tr> 
+            <td><input type="button" value="DEL" style='width:80px; height:40px' onclick="eliminar()"></td>
+            <td><input type="button" value="Borrar" style='width:80px; height:40px' onclick="limpiarTextField()"></td>       
+        </tr>
+        </div>
+        
+        <tr>
+            <td colspan="5"><hr size="4px" color="white"></td>
+        </tr>
+        <tr>
+            <td colspan="5">       
+                <legend><strong>Valores de Verdad</strong></legend>                      
+                <label for="valorVerdadP">P</label>                        
+                <SELECT NAME="value" id="valueOfP" SIZE=1" style="background-color:#2d435f; color: white;"> 
+                    <OPTION VALUE="1">true</OPTION>
+                    <OPTION VALUE="2">false</OPTION>
+                </SELECT>
                 
-        <br>
-	<td colspan="3"><input type="button" value="Calcular" id="calcular" onclick="(new Calcular()).calcular()"></td>          
-        <input type="button" value="Generar Tabla" id="Tabla" onclick="crearTabla()">
-       <tr>
-                <td colspan="5"><hr size="4px" color="black"></td> <br><br>
-            </tr>
+                            
+                <label for="valorVerdadQ">Q</label>
+                <SELECT NAME="value" id="valueOfQ" SIZE=1" style="background-color:#2d435f; color: white;"> 
+                    <OPTION VALUE="1">true</OPTION>
+                    <OPTION VALUE="2">false</OPTION>
+                </SELECT>
+                            
+                            
+                <label for="valorVerdadR">R</label>
+                <SELECT NAME="value" id="valueOfR" SIZE=1" style="background-color:#2d435f; color: white;"> 
+                    <OPTION VALUE="1">true</OPTION>
+                    <OPTION VALUE="2">false</OPTION>
+                </SELECT>
+                            
+                            
+                <label for="valorVerdadS">S</label>
+                <SELECT NAME="value" id="valueOfS" SIZE=1" style="background-color:#2d435f; color: white;"> 
+                    <OPTION VALUE="1">true</OPTION>
+                    <OPTION VALUE="2">false</OPTION>
+                </SELECT>                                  
+            </td>
+        </tr>        
+        <tr>
+            <td colspan="5"><hr size="4px" color="white"></td>
+        </tr>   
+        <tr>
+            <th><span><font size="4" color="black">Equivalencia</font></span></th>
+            <br><br>
+            <td colspan="4"><input type="text" readonly="readonly" name="resultado" style='width:300px; height:30px' id="resultado"></td>               
+        </tr>                           
+        <tr>
+            <td colspan="5"><hr size="4px" color="white"></td>
+        </tr> 
+                
+        <td colspan="3">
+            
+        </td>          
+        <input type="button" value="Generar Tabla" id="Tabla" onclick="(new Calcular()).calcular();  crearTabla()">
+        <tr>
+            <td colspan="5"><hr size="4px" color="white"></td><br><br><br>
+        </tr>    
 
-            <p id="p1"> <span> Copyright 2018 </span>Tabla proposicional. Integrantes: jose castro, sergio gonzalez, devis barraza y victor barros  
+        <p id="p1"> <span> Copyright 2018 </span>Tabla proposicional. Integrantes: jose castro, sergio gonzalez, devis barraza y victor barros  
                 
             </p>
-        
-        </form>        
-    
+    </form>           
 </body>
 </html>
