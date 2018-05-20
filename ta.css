@@ -1,22 +1,14 @@
-body
-{
-    background-color:#2d435f;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-}
-
 input[type="button"],[type="submit"]{
            
             font-size: 20px;
             color: white;
-            background: black;
+            background: #585858;
             }
             input[type="text"]{
                 
                 font-size: 20px;
-                border-radius: 5px;  
-                background-color: white;
-                border: solid 1px #ccc;
+                border-radius: 8px;
+                border-style: hidden;
             }
             table,form{
                 width: 500px;
@@ -25,24 +17,20 @@ input[type="button"],[type="submit"]{
                 padding-top: 5px;
                 padding-right:5px;
                 padding-bottom: 5px;
-                border-radius: 10px;
+                border-radius: 12px;
                 margin: 0 auto;
-                background-color: White;
-                border-radius: 10px;
-                border: 4px solid #f1f1f1;
-                border-color: rgba(0,0,0,0.1);
+		        background: #071914;
+                border: 4px solid #ffffff;
 		
             }
             div{
                 padding: 10px;    
                 font-size: 20px;
             }
-            h1
-            {
-                color: #383D34;
-                margin: 10px;
-                padding: 5px;
-                text-align: center;              
+            h1{
+               	
+		color: white;   
+        text-shadow: 3px 3px 4px #FE642E;           
             }
             label,legend{
                 color: white;
@@ -63,4 +51,17 @@ input[type="button"],[type="submit"]{
 	    input 
 		{
 			border-radius: 8px;
+            
 		}
+
+#del{
+    background: #FE9A2E;
+} 
+#borrar{
+    background: #FE9A2E;
+
+}     
+span{
+ font-weight: bold;
+
+}
